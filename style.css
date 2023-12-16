@@ -5,6 +5,19 @@ body {
     background-color: #f0f0f0;
 }
 
+#toggle-mode {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#toggle-button {
+    padding: 10px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
 header {
     background-color: #333;
     color: #fff;
