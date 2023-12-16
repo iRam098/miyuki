@@ -34,23 +34,23 @@ main {
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: #fff; /* Fondo del contenido en modo diurno */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 section {
     margin-bottom: 20px;
-    background-color: #fff; /* Ajusta el fondo de las secciones en modo nocturno si es necesario */
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Sombra en las secciones */
+    background-color: #fff; 
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); 
 }
 
 h2 {
     color: #333;
 }
 
-/* Agrega estilos específicos para el modo oscuro */
+/* Estilos específicos para el modo oscuro */
 body.dark-mode main {
-    background-color: #2c3e50; /* Fondo de contenido en modo nocturno */
+    background-color: #2c3e50; /* Fondo del contenido en modo nocturno */
     color: #ecf0f1; /* Color de texto en modo nocturno */
 }
 
