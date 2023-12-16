@@ -2,11 +2,11 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #FFFFFF;
+    background-color: #f0f0f0;
 }
 
 header {
-    background-color: #4B4B4B;
+    background-color: #333;
     color: #fff;
     text-align: center;
     padding: 1em;
@@ -16,7 +16,7 @@ main {
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #6B007E;
+    background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -25,5 +25,5 @@ section {
 }
 
 h2 {
-    color: #FFFFFF;
+    color: #333;
 }
