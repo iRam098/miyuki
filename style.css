@@ -18,6 +18,7 @@ main {
     padding: 20px;
     background-color: #2c2f33;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #fff; /* Agregado para hacer que el texto sea blanco */
 }
 
 .discord-button {
@@ -74,7 +75,7 @@ main {
 }
 
 #bot-image img {
-    display: circle;
+    border-radius: 50%; /* Hace que la imagen sea redonda */
     margin: 0 auto;
 }
 
