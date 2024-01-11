@@ -12,7 +12,7 @@
         <div class="menu-button" onclick="toggleMenu()">☰</div>
         <h1>Miyuki</h1>
 
-        <a href="https://discord.com/api/oauth2/authorize?client_id=1184722201165971476&response_type=code&redirect_uri=https%3A%2F%2Firam098.github.io%2Fmiyuki%2F&scope=identify+guilds" class="discord-button">Log In Discord</a>
+        <a href="https://discord.com/api/oauth2/authorize?client_id=1184722201165971476&response_type=code&redirect_uri=https%3A%2F%2Firam098.github.io%2Fmiyuki%2F&scope=identify+guilds" class="discord-button" id="loginButton">Log In Discord</a>
 
         <!-- Menú desplegable -->
         <div class="menu" id="myMenu">
@@ -77,6 +77,57 @@
             var menu = document.getElementById("myMenu");
             menu.style.display = "none";
         }
-    </script>
+// Función para obtener información del usuario después de iniciar sesión
+    function getUserInfo() {
+        const loginButton = document.getElementById('loginButton');
+
+        // Verifica si el usuario ya ha iniciado sesión
+        const accessToken = localStorage.getItem('discordAccessToken');
+
+        if (accessToken) {
+            // Si el token de acceso existe, oculta el botón de inicio de sesión
+            loginButton.style.display = 'none';
+
+            // Llama a la función para obtener información del usuario
+            fetchUserInfo(accessToken);
+        } else {
+            // Si no hay token de acceso, muestra el botón de inicio de sesión
+            loginButton.style.display = 'block';
+        }
+    }
+
+    // Función para obtener información del usuario desde la API de Discord
+    function fetchUserInfo(accessToken) {
+        const apiUrl = 'https://discord.com/api/users/@me';
+
+        // Realiza una solicitud a la API de Discord
+        fetch(apiUrl, {
+            headers: {
+                Authorization: `Bearer ${accessToken}`,
+            },
+        })
+        .then(response => response.json())
+        .then(userData => {
+            // Muestra la foto del usuario en el contenedor
+            displayUserPhoto(userData.avatar);
+        })
+        .catch(error => console.error('Error al obtener información del usuario:', error));
+    }
+
+    // Función para mostrar la foto del usuario
+    function displayUserPhoto(avatar) {
+        const userInfoContainer = document.getElementById('user-info-container');
+
+        // Crea un elemento de imagen y establece su fuente
+        const userImage = document.createElement('img');
+        userImage.src = `https://cdn.discordapp.com/avatars/${avatar}.png`;
+
+        // Agrega la imagen al contenedor
+        userInfoContainer.appendChild(userImage);
+    }
+
+    // Llama a la función para obtener la información del usuario cuando se carga la página
+    getUserInfo();
+</script>
 </body>
 </html>
