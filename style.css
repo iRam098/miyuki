@@ -74,7 +74,7 @@ main {
 }
 
 #bot-image img {
-    display: block;
+    display: circle;
     margin: 0 auto;
 }
 
