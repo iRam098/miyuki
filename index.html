@@ -11,12 +11,8 @@
     <header>
         <div class="left-container">
             <div class="menu-button" onclick="toggleMenu()">☰</div>
-            <a href="https://discord.com/api/oauth2/authorize?client_id=1184722201165971476&response_type=code&redirect_uri=https%3A%2F%2Firam098.github.io%2Fmiyuki%2F&scope=identify+guilds" class="discord-button" id="loginButton">Log In Discord</a>
         </div>
         <h1>Miyuki</h1>
-
-        <!-- Contenedor para la foto del usuario -->
-        <div id="user-info-container"></div>
 
         <!-- Menú desplegable -->
         <div class="menu" id="myMenu">
@@ -50,88 +46,37 @@
         </a>
     </main>
 
-<script>
-    // Función para mostrar/ocultar el menú
-    function toggleMenu() {
+    <script>
+        // Función para mostrar/ocultar el menú
+        function toggleMenu() {
             var menu = document.getElementById("myMenu");
             menu.style.display = (menu.style.display === "block") ? "none" : "block";
         }
 
-    // Función para abrir una categoría en la misma pestaña
-    function openCategory(category) {
-        var url;
-        switch (category) {
-            case 'commands':
-                url = 'commands.html'; // Reemplaza con la ruta correcta
-                break;
-            case 'dashboard':
-                url = 'dashboard.html'; // Reemplaza con la ruta correcta
-                break;
-            case 'support':
-                url = 'support.html'; // Reemplaza con la ruta correcta
-                break;
-            default:
-                url = '#';
-        }
-
-        // Cambia la ubicación actual de la ventana al nuevo URL
-        window.location.href = url;
-
-        // Oculta el menú desplegable después de hacer clic en un enlace del menú
-        var menu = document.getElementById("myMenu");
-        menu.style.display = "none";
-    }
-
-    // Función para obtener información del usuario después de iniciar sesión
-        function getUserInfo() {
-            const loginButton = document.getElementById('loginButton');
-            const userInfoContainer = document.getElementById('user-info-container');
-
-            // Verifica si el usuario ya ha iniciado sesión
-            const accessToken = localStorage.getItem('discordAccessToken');
-
-            if (accessToken) {
-                // Si el token de acceso existe, oculta el botón de inicio de sesión
-                loginButton.style.display = 'none';
-
-                // Llama a la función para obtener información del usuario
-                fetchUserInfo(accessToken);
-            } else {
-                // Si no hay token de acceso, muestra el botón de inicio de sesión
-                loginButton.style.display = 'block';
+        // Función para abrir una categoría en la misma pestaña
+        function openCategory(category) {
+            var url;
+            switch (category) {
+                case 'commands':
+                    url = 'commands.html'; // Reemplaza con la ruta correcta
+                    break;
+                case 'dashboard':
+                    url = 'dashboard.html'; // Reemplaza con la ruta correcta
+                    break;
+                case 'support':
+                    url = 'support.html'; // Reemplaza con la ruta correcta
+                    break;
+                default:
+                    url = '#';
             }
+
+            // Cambia la ubicación actual de la ventana al nuevo URL
+            window.location.href = url;
+
+            // Oculta el menú desplegable después de hacer clic en un enlace del menú
+            var menu = document.getElementById("myMenu");
+            menu.style.display = "none";
         }
-
-        // Función para obtener información del usuario desde la API de Discord
-        function fetchUserInfo(accessToken) {
-            const apiUrl = 'https://discord.com/api/users/@me';
-
-            // Realiza una solicitud a la API de Discord
-            fetch(apiUrl, {
-                headers: {
-                    Authorization: `Bearer ${accessToken}`,
-                },
-            })
-            .then(response => response.json())
-            .then(userData => {
-                // Muestra la foto del usuario en el contenedor
-                displayUserPhoto(userInfoContainer, userData.avatar);
-            })
-            .catch(error => console.error('Error al obtener información del usuario:', error));
-        }
-
-        // Función para mostrar la foto del usuario
-        function displayUserPhoto(container, avatar) {
-            // Crea un elemento de imagen y establece su fuente
-            const userImage = document.createElement('img');
-            userImage.src = `https://cdn.discordapp.com/avatars/${avatar}.png`;
-
-            // Agrega la imagen al contenedor
-            container.appendChild(userImage);
-        }
-
-        // Llama a la función para obtener la información del usuario cuando se carga la página
-        getUserInfo();
     </script>
 </body>
 </html>
