@@ -40,6 +40,31 @@ main {
     background-color: #2980b9; /* Cambio de color al pasar el ratón */
 }
 
+.menu-button {
+    cursor: pointer;
+    font-size: 24px;
+    margin-left: 20px;
+}
+
+.menu {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.menu a {
+    color: #fff;
+    padding: 12px;
+    text-decoration: none;
+    display: block;
+}
+
+.menu a:hover {
+    background-color: #555;
+}
+
 #bot-image {
     text-align: center;
 }
