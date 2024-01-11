@@ -14,12 +14,15 @@
 
         <a href="https://discord.com/api/oauth2/authorize?client_id=1184722201165971476&response_type=code&redirect_uri=https%3A%2F%2Firam098.github.io%2Fmiyuki%2F&scope=identify+guilds" class="discord-button" id="loginButton">Log In Discord</a>
 
+        <!-- Contenedor para la foto del usuario -->
+        <div id="user-info-container"></div>
+
         <!-- Menú desplegable -->
         <div class="menu" id="myMenu">
-    <a href="javascript:void(0);" onclick="openCategory('commands')">Commands</a>
-    <a href="javascript:void(0);" onclick="openCategory('dashboard')">Dashboard</a>
-    <a href="javascript:void(0);" onclick="openCategory('support')">Support</a>
-</div>
+            <a href="javascript:void(0);" onclick="openCategory('commands')">Commands</a>
+            <a href="javascript:void(0);" onclick="openCategory('dashboard')">Dashboard</a>
+            <a href="javascript:void(0);" onclick="openCategory('support')">Support</a>
+        </div>
     </header>
     <main>
         <section id="about">
@@ -53,33 +56,35 @@
         menu.style.display = (menu.style.display === "block") ? "none" : "block";
     }
 
-    // Función para abrir una categoría en una nueva pestaña
+    // Función para abrir una categoría en la misma pestaña
     function openCategory(category) {
-            var url;
-            switch (category) {
-                case 'commands':
-                    url = 'commands.html'; // Reemplaza con la ruta correcta
-                    break;
-                case 'dashboard':
-                    url = 'dashboard.html'; // Reemplaza con la ruta correcta
-                    break;
-                case 'support':
-                    url = 'support.html'; // Reemplaza con la ruta correcta
-                    break;
-                default:
-                    url = '#';
-            }
-
-            // Cambia la ubicación actual de la ventana al nuevo URL
-            window.location.href = url;
-
-            // Oculta el menú desplegable después de hacer clic en un enlace del menú
-            var menu = document.getElementById("myMenu");
-            menu.style.display = "none";
+        var url;
+        switch (category) {
+            case 'commands':
+                url = 'commands.html'; // Reemplaza con la ruta correcta
+                break;
+            case 'dashboard':
+                url = 'dashboard.html'; // Reemplaza con la ruta correcta
+                break;
+            case 'support':
+                url = 'support.html'; // Reemplaza con la ruta correcta
+                break;
+            default:
+                url = '#';
         }
-// Función para obtener información del usuario después de iniciar sesión
+
+        // Cambia la ubicación actual de la ventana al nuevo URL
+        window.location.href = url;
+
+        // Oculta el menú desplegable después de hacer clic en un enlace del menú
+        var menu = document.getElementById("myMenu");
+        menu.style.display = "none";
+    }
+
+    // Función para obtener información del usuario después de iniciar sesión
     function getUserInfo() {
         const loginButton = document.getElementById('loginButton');
+        const userInfoContainer = document.getElementById('user-info-container');
 
         // Verifica si el usuario ya ha iniciado sesión
         const accessToken = localStorage.getItem('discordAccessToken');
@@ -109,21 +114,19 @@
         .then(response => response.json())
         .then(userData => {
             // Muestra la foto del usuario en el contenedor
-            displayUserPhoto(userData.avatar);
+            displayUserPhoto(userInfoContainer, userData.avatar);
         })
         .catch(error => console.error('Error al obtener información del usuario:', error));
     }
 
     // Función para mostrar la foto del usuario
-    function displayUserPhoto(avatar) {
-        const userInfoContainer = document.getElementById('user-info-container');
-
+    function displayUserPhoto(container, avatar) {
         // Crea un elemento de imagen y establece su fuente
         const userImage = document.createElement('img');
         userImage.src = `https://cdn.discordapp.com/avatars/${avatar}.png`;
 
         // Agrega la imagen al contenedor
-        userInfoContainer.appendChild(userImage);
+        container.appendChild(userImage);
     }
 
     // Llama a la función para obtener la información del usuario cuando se carga la página
