@@ -53,28 +53,28 @@
 
     // Función para abrir una categoría en una nueva pestaña
     function openCategory(category) {
-        var url;
-        switch (category) {
-            case 'commands':
-                url = 'commands.html'; // Reemplaza con la ruta correcta
-                break;
-            case 'dashboard':
-                url = 'dashboard.html'; // Reemplaza con la ruta correcta
-                break;
-            case 'support':
-                url = 'support.html'; // Reemplaza con la ruta correcta
-                break;
-            default:
-                url = '#';
+            var url;
+            switch (category) {
+                case 'commands':
+                    url = 'commands.html'; // Reemplaza con la ruta correcta
+                    break;
+                case 'dashboard':
+                    url = 'dashboard.html'; // Reemplaza con la ruta correcta
+                    break;
+                case 'support':
+                    url = 'support.html'; // Reemplaza con la ruta correcta
+                    break;
+                default:
+                    url = '#';
+            }
+
+            // Cambia la ubicación actual de la ventana al nuevo URL
+            window.location.href = url;
+
+            // Oculta el menú desplegable después de hacer clic en un enlace del menú
+            var menu = document.getElementById("myMenu");
+            menu.style.display = "none";
         }
-
-        // Abre la URL en una nueva pestaña
-        window.open(url, '_blank');
-
-        // Oculta el menú desplegable después de hacer clic en un enlace del menú
-        var menu = document.getElementById("myMenu");
-        menu.style.display = "none";
-    }
-</script>
+    </script>
 </body>
 </html>
