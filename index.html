@@ -9,8 +9,10 @@
 </head>
 <body>
     <header>
-        <div class="menu-button" onclick="toggleMenu()">☰</div>
-        <a href="https://discord.com/api/oauth2/authorize?client_id=1184722201165971476&response_type=code&redirect_uri=https%3A%2F%2Firam098.github.io%2Fmiyuki%2F&scope=identify+guilds" class="discord-button" id="loginButton">Log In Discord</a>
+        <div class="left-container">
+            <div class="menu-button" onclick="toggleMenu()">☰</div>
+            <a href="https://discord.com/api/oauth2/authorize?client_id=1184722201165971476&response_type=code&redirect_uri=https%3A%2F%2Firam098.github.io%2Fmiyuki%2F&scope=identify+guilds" class="discord-button" id="loginButton">Log In Discord</a>
+        </div>
         <h1>Miyuki</h1>
 
         <!-- Contenedor para la foto del usuario -->
@@ -51,9 +53,9 @@
 <script>
     // Función para mostrar/ocultar el menú
     function toggleMenu() {
-        var menu = document.getElementById("myMenu");
-        menu.style.display = (menu.style.display === "block") ? "none" : "block";
-    }
+            var menu = document.getElementById("myMenu");
+            menu.style.display = (menu.style.display === "block") ? "none" : "block";
+        }
 
     // Función para abrir una categoría en la misma pestaña
     function openCategory(category) {
