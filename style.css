@@ -77,6 +77,7 @@ main {
     background-color: #333;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 1;
+    margin-top: 40px; /* Ajusta según sea necesario para evitar que se superponga con el botón */
 }
 
 .menu a {
