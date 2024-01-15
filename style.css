@@ -26,7 +26,16 @@ header {
     margin-left: 20px;
 }
 
-.invite-button {
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #EE79FF; /* Color de fondo rosa */
+    padding: 1em;
+}
+
+/* Estilos para los botones */
+.discord-button, .invite-button {
     display: inline-block;
     padding: 10px 20px;
     background-color: #27ae60; /* Puedes ajustar el color según tus preferencias */
@@ -35,6 +44,10 @@ header {
     border-radius: 5px;
     margin-left: 10px; /* Espaciado entre los botones */
     transition: background-color 0.3s ease;
+}
+
+.discord-button:hover, .invite-button:hover {
+    background-color: #219653; /* Cambio de color al pasar el ratón */
 }
 
 .invite-button:hover {
