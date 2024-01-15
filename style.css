@@ -50,10 +50,6 @@ header {
     background-color: #219653; /* Cambio de color al pasar el ratón */
 }
 
-.invite-button:hover {
-    background-color: #219653; /* Cambio de color al pasar el ratón */
-}
-
 h1 {
     margin: 0; /* Evita el margen predeterminado del h1 */
 }
