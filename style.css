@@ -26,6 +26,21 @@ header {
     margin-left: 20px;
 }
 
+.invite-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #27ae60; /* Puedes ajustar el color según tus preferencias */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-left: 10px; /* Espaciado entre los botones */
+    transition: background-color 0.3s ease;
+}
+
+.invite-button:hover {
+    background-color: #219653; /* Cambio de color al pasar el ratón */
+}
+
 h1 {
     margin: 0; /* Evita el margen predeterminado del h1 */
 }
